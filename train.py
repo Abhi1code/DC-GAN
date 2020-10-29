@@ -304,7 +304,7 @@ def train_progressive_gan(
                 misc.save_image_grid(grid_fakes, os.path.join(result_subdir, 'fakes%06d.png' % (cur_nimg // 1000)), drange=drange_net, grid_size=grid_size)
             if cur_tick % network_snapshot_ticks == 0 or done:
                 misc.save_pkl((G, D, Gs), os.path.join(result_subdir, 'network-snapshot-%06d.pkl' % (cur_nimg // 1000)))
-                command = "cp -r " + "/content/disentangling_conditional_gans/results/" + " \"/content/drive/My Drive/\""
+                command = "cp -r " + "/content/disentangling_conditional_gans/results/" + " \"/content/drive/My Drive/gan-dataset/\""
                 os.system(command)
                 print(command)
             # Record start time of the next tick.
