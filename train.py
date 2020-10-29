@@ -177,7 +177,7 @@ def train_progressive_gan(
     network_snapshot_ticks  = 10,           # How often to export network snapshots?
     save_tf_graph           = False,        # Include full TensorFlow computation graph in the tfevents file?
     save_weight_histograms  = False,        # Include weight histograms in the tfevents file?
-    resume_run_id           = 'network-snapshot-000026.pkl',         # Run ID or network pkl to resume training from, None = start from scratch.
+    resume_run_id           = 'network-snapshot-000005.pkl',         # Run ID or network pkl to resume training from, None = start from scratch.
     resume_snapshot         = None,         # Snapshot index to resume training from, None = autodetect.
     resume_kimg             = 0.0,          # Assumed training progress at the beginning. Affects reporting and training schedule.
     resume_time             = 0.0):         # Assumed wallclock time at the beginning. Affects reporting.
@@ -304,7 +304,7 @@ def train_progressive_gan(
                 misc.save_image_grid(grid_fakes, os.path.join(result_subdir, 'fakes%06d.png' % (cur_nimg // 1000)), drange=drange_net, grid_size=grid_size)
             if cur_tick % network_snapshot_ticks == 0 or done:
                 misc.save_pkl((G, D, Gs), os.path.join(result_subdir, 'network-snapshot-%06d.pkl' % (cur_nimg // 1000)))
-                command = "cp -r " + "/content/disentangling_conditional_gans/results/" + " \"/content/drive/My Drive/gan-dataset/\""
+                command = "cp -r " + "/content/DC-GAN/results/" + " \"/content/drive/My Drive/gan-dataset/\""
                 os.system(command)
                 print(command)
             # Record start time of the next tick.
